@@ -2,7 +2,7 @@ body{
   margin:0;
   padding:0;
   color:#666;
-  background:#888;
+  background:#85cd2c;
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size:20px;
 }
@@ -134,6 +134,8 @@ main section#contact>div>div p{margin:60px auto 0;max-width:700px;
 }
 #skills .grid li i{
     margin:20px;
+    box-shadow: 0 0 0 4px rgba(255,255,255,1);
+	  transition: background 0.2s, color 0.2s;
 }
 @media(min-width:1023px){
   #skills .grid li{
@@ -141,11 +143,32 @@ main section#contact>div>div p{margin:60px auto 0;max-width:700px;
       padding:20px 0;
   }
 }
-#skills img{
-    max-width:100%;
-    height:auto;
-    display:block;
+@keyframes spinAround {
+	from {
+		transform: rotate(0deg)
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
+@-webkit-keyframes spinAround {
+	from {
+		transform: rotate(0deg)
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+#skills .grid li i:hover{
+  background: rgba(255,255,255,1);
+  transform: rotate(360deg);
+		cursor: pointer;
+	color: #64bb5d;
+}
+#skills .grid li i:hover:before{
+    animation: spinAround 2s;
+}
+
 #portfolio .grid{
     padding:0;
     max-width:90%;
