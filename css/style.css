@@ -2,9 +2,39 @@ body{
   margin:0;
   padding:0;
   color:#666;
-  background:#85cd2c;
+  background:url("../img/mist.jpg") #333;
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size:20px;
+	-webkit-animation: 10s linear 0s normal none infinite animate;
+	-moz-animation: 10s linear 0s normal none infinite animate;
+	-ms-animation: 10s linear 0s normal none infinite animate;
+	-o-animation: 10s linear 0s normal none infinite animate;
+	animation: 10s linear 0s normal none infinite animate;
+}
+ 
+@-webkit-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 1000px 0;}
+}
+ 
+@-moz-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 1000px 0;}
+}
+ 
+@-ms-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 1000px 0;}
+}
+ 
+@-o-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 1000px 0;}
+}
+ 
+@keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 1000px 0;}
 }
 h2,h3{
   color:#888;
@@ -133,9 +163,10 @@ main section#contact>div>div p{margin:60px auto 0;max-width:700px;
     text-align: center;
 }
 #skills .grid li i{
+    display: inline-block;
     margin:20px;
-    box-shadow: 0 0 0 4px rgba(255,255,255,1);
-	  transition: background 0.2s, color 0.2s;
+/*    box-shadow: 0 0 0 4px rgba(255,255,255,1);*/
+    transition: color 0.5s ease, background-color 0.5s ease, transform 0.5s ease;
 }
 @media(min-width:1023px){
   #skills .grid li{
@@ -160,14 +191,16 @@ main section#contact>div>div p{margin:60px auto 0;max-width:700px;
 	}
 }
 #skills .grid li i:hover{
-  background: rgba(255,255,255,1);
-  transform: rotate(360deg);
-		cursor: pointer;
+/*    background: rgba(255,255,255,1);*/
+    transform: scale(1.5) rotate(360deg);
+    cursor: pointer;
 	color: #64bb5d;
 }
+/*
 #skills .grid li i:hover:before{
     animation: spinAround 2s;
 }
+*/
 
 #portfolio .grid{
     padding:0;
@@ -177,18 +210,81 @@ main section#contact>div>div p{margin:60px auto 0;max-width:700px;
     background: dimgray;
 }
 #portfolio .grid li{
+    position:relative;
     margin:20px;
     max-width:600px;
+    -webkit-perspective: 2000;
+    -moz-perspective: 2000;
+    -o-perspective: 2000;
+    perspective: 2000;
 }
 @media(min-width:1023px){
-  #portfolio .grid li{
+  #portfolio .grid li, .front, .back{
       max-width:420px;
   }
 }
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.front{
+    position:relative   ;
+    z-index: 2;
+}
+.back{
+    position:absolute;
+    top: 0;
+}
+.flipper{
+	position: relative;
+    -webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+
+	-moz-transition: 0.6s;
+	-moz-transform-style: preserve-3d;
+  
+  -o-transition: 0.6s;
+	-o-transform-style: preserve-3d;
+
+	transition: 0.6s;
+	transform-style: preserve-3d; 
+}
 #portfolio img{
+    position:relative;
+    transform: rotateY(180deg);
+    z-index: 1;
     max-width:100%;
     height:auto;
-    display:block;
+    display:inline-block;
+    transition: 2s;
+}
+#portfolio li:hover .flipper{
+    cursor: pointer;
+    -webkit-transform: rotateY(180deg);
+		-moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+		transform: rotateY(180deg);
+    transition: 2s;
+}
+#contact{
+    height: 130px;
+    overflow: hidden;
+    transition: 2s;
+}
+#open{
+    margin-left: 20px;
+    transition: 2s;
+    opacity: 1;
+}
+#close{
+    float: right;
+    opacity: 0;
 }
 form{
   width:80%;
