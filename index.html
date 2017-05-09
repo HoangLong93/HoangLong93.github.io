@@ -29,9 +29,8 @@
     <main>
         <header>
             <div class="intro-text">
-                <p>Front-End Developer with good knowledge of Front-End, Back-End Technologies; interested in React JS, Node
-                    JS and develop user-friendly web, mobile application; devoted to functional programming.</p>
-                <hr class="star-bright" /><span class="positions">Front-End Developer - Full-Stack Developer - JS Developer</span>
+                <p id="summary"></p>
+                <hr class="star-bright" /><span id="positions" class="positions"></span>
             </div>
             <img src="img/pic.jpg" alt="profile picture" title="HoangLong93" />
         </header>
@@ -40,7 +39,7 @@
             <h2>Skills</h2>
             <hr class="star-dark" />
             <ul class="grid">
-                <li><i class="devicon-react-original fa-3x" title="React JS"></i></li>
+                <li><i class="devicon-react-original fa-3x iconsss" title="React JS"></i></li>
                 <li><i class="devicon-nodejs-plain fa-3x" title="Node JS"></i></li>
                 <li><i class="devicon-html5-plain fa-3x" title="HTML5"></i></li>
                 <li><i class="devicon-css3-plain fa-3x" title="CSS3"></i></li>
@@ -61,16 +60,61 @@
             <h2>Portfolio</h2>
             <hr class="star-dark" />
             <ul class="grid">
-                <li><img src="img/kanban.jpg" alt="Kanban Board" title="Kanban Board" /></li>
-                <li><img src="img/react-page.jpg" alt="React Web App" title="React App for managing user" /></li>
-                <li><img src="img/news-page.jpg" alt="Live News Page" title="Angular App for displaying top news" /></li>
-                <li><img src="img/insta-ninja.jpg" alt="Angular JS Page" title="Application for shaing pictures" /></li>
-                <li><img src="img/chat-box.jpg" alt="Chat App" title="Chat App" /></li>
+                <li>
+                    <div class="flipper">
+                        <div class="front">
+                            <img src="img/fff.png" alt="React Web App" title="React App for managing user" />
+                        </div>
+                        <div class="back">
+                             <img src="img/kanban.jpg" alt="Kanban Board" title="Kanban Board" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flipper">
+                        <div class="front">
+                            <img src="img/fff.png" alt="React Web App" title="React App for managing user" />
+                        </div>
+                        <div class="back">
+                             <img src="img/react-page.jpg" alt="React Web App" title="React App for managing user" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flipper">
+                        <div class="front">
+                            <img src="img/fff.png" alt="React Web App" title="React App for managing user" />
+                        </div>
+                        <div class="back">
+                             <img src="img/news-page.jpg" alt="Live News Page" title="Angular App for displaying top news" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flipper">
+                        <div class="front">
+                            <img src="img/fff.png" alt="React Web App" title="React App for managing user" />
+                        </div>
+                        <div class="back">
+                             <img src="img/insta-ninja.jpg" alt="Angular JS Page" title="Application for shaing pictures" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flipper">
+                        <div class="front">
+                            <img src="img/fff.png" alt="React Web App" title="React App for managing user" />
+                        </div>
+                        <div class="back">
+                             <img src="img/chat-box.jpg" alt="Chat App" title="Chat App" />
+                        </div>
+                    </div>
+                </li>
             </ul>
         </section>
         <!-- Contact Section-->
         <section id="contact">
-            <h2>Contact Me</h2>
+            <h2>Contact Me<span onclick="openInfo()"><i id="open" class="fa fa-arrow-circle-down"></i></span> </h2>
             <hr class="star-dark" />
             <div>
                 <form id="contactForm" novalidate="">
@@ -91,6 +135,7 @@
                     <p>Want to know more about me?</p>
                     <p> Feel free to contact me by phone or through email at any time.</p>
                     <p>I will reply A.S.A.P.</p>
+                    <h2><span onclick="closeInfo()"><i id="close" class="fa fa-arrow-circle-up"></i></span></h2>
                 </div>
             </div>
         </section>
@@ -142,6 +187,40 @@
             scrollTop: $($.attr(this, 'href')).offset().top
         }, 500);
     });
+
+</script>
+<script>
+    var summary = "Front-End Developer with good knowledge of Front-End, Back-End Technologies; interested in React JS, Node JS and develop user-friendly web, mobile application; devoted to functional programming."
+    var positions = "Front-End Developer - Full-Stack Developer - JS Developer"
+    window.onload = function(){
+        printText(summary,"summary")
+        printText(positions,"positions")
+    }
+    function printText(text,id){
+        var index = 0;
+        var target = setInterval(function(){
+            if (index == text.length-1){
+                clearInterval(target);
+            }
+            document.getElementById(id).innerHTML += text[index];
+            index++;
+        }, 50)
+    }
+</script>
+<script>
+    var contact = document.getElementById("contact");
+    var open = document.getElementById("open");
+    var close = document.getElementById("close");
+function openInfo(){
+    open.style.opacity = "0";
+    close.style.opacity = "1";
+    contact.style.height = "487px"
+}
+function closeInfo(){
+    open.style.opacity = "1";
+    close.style.opacity = "0";
+    contact.style.height = "130px"
+}
 
 </script>
 
