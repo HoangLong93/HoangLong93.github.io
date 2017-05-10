@@ -28,7 +28,7 @@
     <a rel="nofollow" rel="noreferrer" id="top" name="home"></a>
     <main>
         <header>
-            <ul>
+            <ul id="aboutMe">
                 <li>
                     <div class="intro-text">
                         <p id="summary"></p>
@@ -226,9 +226,17 @@
 <script>
     var summary = "Front-End Developer with good knowledge of Front-End, Back-End Technologies; interested in React JS, Node JS and develop user-friendly web, mobile application; devoted to functional programming."
     var positions = "Front-End Developer - Full-Stack Developer - JS Developer"
+    var aboutMe = document.getElementById("aboutMe");
     window.onload = function(){
         printText(summary,"summary")
         printText(positions,"positions")
+        setInterval(function(){
+            if(aboutMe.classList.contains("left")){
+                aboutMe.classList.remove("left");
+            }else {
+            aboutMe.classList.add("left")
+            }
+        },3000)
     }
     function printText(text,id){
         var index = 0;
