@@ -126,6 +126,13 @@ main header img{
     width:250px;
     transform: rotate(90deg)
 }
+main header ul, main header li{
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
 main header .intro-text{
     max-width:675px;
     text-align:center;
@@ -282,15 +289,16 @@ main section#contact>div>div p{margin:60px auto 0;max-width:700px;
     transition: 2s;
     opacity: 1;
 }
-#close{
+#close, #sendMessIcon{
     float: right;
     opacity: 0;
+    padding: 5px;
 }
-form{
+#contactMe{
   width:80%;
 }
 @media(min-width:1023px){
-  form{
+  #contactMe{
     width:40%;
     margin-left:20px;
   }
@@ -299,7 +307,17 @@ form .row:first-child .form-item{border-top:1px solid #fff;
 }
 .form-item{position:relative;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #bbb;
 }
-.form-item input, .form-item textarea{z-index:1;position:relative;padding-right:0;padding-left:0;border:0;border-radius:0;font-size:1.5em;background:0 0;box-shadow:none!important;resize:none;width:100%;
+.form-item input, .form-item textarea, .message textarea{
+    z-index:1;
+    position:relative;
+    padding-right:0;
+    padding-left:0;
+    border:0;
+    border-radius:0;
+    background:0 0;
+    box-shadow:none!important;
+    resize:none;
+    width:100%;
 }
 .form-item input:focus, .form-item textarea:focus{outline:0
 }
@@ -367,3 +385,53 @@ hr.star-dark{border-color:#888;
 }
 hr.star-dark:after{color:#888;background-color:#eee;
 }
+.active{
+    visibility: visible!important;
+    opacity: 1!important;
+}
+#message-container{
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.message-form{
+    margin: 0 auto;
+    width: 60%;
+    padding-bottom: 20px;
+    position: absolute;
+    top: 40%;
+    left: 50%;        
+    text-align: center;
+    background: white;
+    transform: translate(-50%,-50%);
+}
+#message .form-item {
+    width: 45%;
+    display: inline-block;
+}
+.message{
+    margin: 5% 5% 5% 5%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bbb;
+    font-size: 1em;
+}
+.message textarea:focus{
+    outline:0
+}
+
+.confirm-btn button{      
+    width: 200px;
+    padding: 20px 50px;
+    margin: 0px 20px; 
+    border:0;
+    border-radius: 5px;          
+    font-weight: bolder;
+    font-size: 17px;
+}
+
