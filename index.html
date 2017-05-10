@@ -28,11 +28,23 @@
     <a rel="nofollow" rel="noreferrer" id="top" name="home"></a>
     <main>
         <header>
-            <div class="intro-text">
-                <p id="summary"></p>
-                <hr class="star-bright" /><span id="positions" class="positions"></span>
-            </div>
-            <img src="img/pic.jpg" alt="profile picture" title="HoangLong93" />
+            <ul>
+                <li>
+                    <div class="intro-text">
+                        <p id="summary"></p>
+                        <hr class="star-bright" /><span id="positions" class="positions"></span>
+                    </div>
+                    <img src="img/pic.jpg" alt="profile picture" title="HoangLong93" /> 
+                </li>
+                <li>
+                    <div class="intro-text">
+                        <p id="summary"></p>
+                        <hr class="star-bright" /><span id="positions" class="positions"></span>
+                    </div>
+                    <img src="img/pic.jpg" alt="profile picture" title="HoangLong93" /> 
+                </li>
+            </ul>
+            
         </header>
         <!-- Skills Section-->
         <section id="skills">
@@ -114,10 +126,10 @@
         </section>
         <!-- Contact Section-->
         <section id="contact">
-            <h2>Contact Me<span onclick="openInfo()"><i id="open" class="fa fa-arrow-circle-down"></i></span> </h2>
+            <h2>Contact Me<span onclick="openInfo()"><i id="open" class="fa fa-arrow-circle-down"></i></span></h2>
             <hr class="star-dark" />
             <div>
-                <form id="contactForm" novalidate="">
+                <form id="contactMe">
                     <div class="form-item">
                         <label for="“name”">Dinh Hoang Long</label>
                     </div>
@@ -135,9 +147,31 @@
                     <p>Want to know more about me?</p>
                     <p> Feel free to contact me by phone or through email at any time.</p>
                     <p>I will reply A.S.A.P.</p>
-                    <h2><span onclick="closeInfo()"><i id="close" class="fa fa-arrow-circle-up"></i></span></h2>
+                    <h2><span onclick="closeInfo()"><i id="close" class="fa fa-arrow-circle-up"></i></span>
+                        <span onclick="showMessContainer()"><i id="sendMessIcon" class="fa fa-commenting-o"></i></span>
+                    </h2>
                 </div>
             </div>
+            <div id="message-container">
+                    <div class="message-form">
+                        <h2>Leave a message</h2>
+                        <form id="message">
+                            <div class="form-item">
+                                <input id="name" type="text" placeholder="Name" required=""/>
+                            </div>
+                            <div class="form-item">
+                                <input id="email" type="email" placeholder="Email Address" required=""/>
+                            </div>
+                            <div class="message">
+                                <textarea id="message" rows="5" placeholder="Message" required=""></textarea>
+                            </div>
+                            <div class="confirm-btn">
+                                <button type="button" class="btn btn-success" onclick="sendMess()">Send</button>
+                                <button type="button" class="btn btn-danger"  onclick="cancelMess()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
         </section>
     </main>
     <!-- Footer-->
@@ -211,15 +245,29 @@
     var contact = document.getElementById("contact");
     var open = document.getElementById("open");
     var close = document.getElementById("close");
+    var sendMessIcon = document.getElementById("sendMessIcon");
+    var messageContainer = document.getElementById("message-container");
 function openInfo(){
     open.style.opacity = "0";
     close.style.opacity = "1";
+    sendMessIcon.style.opacity = "1";
     contact.style.height = "487px"
 }
 function closeInfo(){
     open.style.opacity = "1";
     close.style.opacity = "0";
+    sendMessIcon.style.opacity = "0";
     contact.style.height = "130px"
+}
+function showMessContainer(){
+    messageContainer.classList.add("active");
+}
+function sendMess(){
+    messageContainer.classList.remove("active");
+    alert("Message sent successful!")
+}
+function cancelMess(){
+    messageContainer.classList.remove("active");
 }
 
 </script>
