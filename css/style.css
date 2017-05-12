@@ -2,16 +2,37 @@ body{
   margin:0;
   padding:0;
   color:#666;
-  background:url("../img/mist.jpg") #333;
+  background: #CAF1EE;
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size:20px;
+}
+
+.background-1,.background-2,.background-3,.background-4{
+    background:url("../img/mist.jpg");
+    opacity: 0.3;
 	-webkit-animation: 10s linear 0s normal none infinite animate;
 	-moz-animation: 10s linear 0s normal none infinite animate;
 	-ms-animation: 10s linear 0s normal none infinite animate;
 	-o-animation: 10s linear 0s normal none infinite animate;
 	animation: 10s linear 0s normal none infinite animate;
+    position: fixed;
+    height: 100%;
+    width: 40%;
+    border: none;
+    z-index: -1;
+} 
+.background-1{
+    left: 0%;
 }
- 
+.background-2{
+    left: -20%;
+}
+.background-3{
+    left: 80%;
+}
+.background-4{
+    left: 60%;
+}
 @-webkit-keyframes animate {
 	from {background-position:0 0;}
 	to {background-position: 1000px 0;}
@@ -105,6 +126,7 @@ main{
 }
 main header{
     overflow: hidden;
+    position: relative;
   background:#aaa;
   color:#fff;
   text-align:right;
@@ -140,13 +162,13 @@ ul.left {
 }
 main header li{
     list-style: none;
-    width: 50%;
-    margin: 0;
-    padding: 0;
+    width: 48%;
+    margin: 0 15px;
+    padding: 0 15px;
     float: left;
 }
 main header .intro-text{
-    max-width:675px;
+    /*max-width:675px;*/
     text-align:center;
     margin-bottom:30px;
     float:left;
@@ -157,9 +179,34 @@ main header .intro-text{
       width:610px;
   }
 }
+main header .following-list{
+    width: 820px;
+    margin: 0 30px;
+}
+.following-list h2, .following-list h3, .following-list p{
+    margin: 0;
+    color: #fff;
+    text-align: center;
+}
 main header .intro-text .positions{font-size:1.15em;
 }
 main section{background:#eee;padding:40px 0;
+}
+main header .prevSlide{
+    position: absolute;
+    top:50%;
+    left: 0%;
+}
+main header .nextSlide{
+    position: absolute;
+    top:50%;
+    right: 0%;
+}
+main header .prevSlide, main header .nextSlide{
+    color: rgba(0, 0, 0, 0.4);
+    background: inherit;
+    opacity: 0;
+    transition: 2s;
 }
 main section#contact>div{margin:0px auto;
 }
@@ -275,7 +322,7 @@ main section#contact>div>div p{margin:60px auto 0;max-width:700px;
 	transition: 0.6s;
 	transform-style: preserve-3d; 
 }
-#portfolio img{
+#portfolio .back img{
     position:relative;
     transform: rotateY(180deg);
     z-index: 1;
@@ -332,7 +379,7 @@ form .row:first-child .form-item{border-top:1px solid #fff;
     resize:none;
     width:100%;
 }
-.form-item input:focus, .form-item textarea:focus{outline:0
+.form-item input:focus, .form-item textarea:focus, .message textarea:focus,#aboutMe span:active{outline:0
 }
 .form-item label{
     display:block;
@@ -433,9 +480,6 @@ hr.star-dark:after{color:#888;background-color:#eee;
     padding-bottom: 10px;
     border-bottom: 1px solid #bbb;
     font-size: 1em;
-}
-.message textarea:focus{
-    outline:0
 }
 
 .confirm-btn button{      
