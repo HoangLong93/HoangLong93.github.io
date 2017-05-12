@@ -8,16 +8,16 @@ body{
 }
 
 .background-1,.background-2,.background-3,.background-4{
-    background:url("../img/mist.jpg");
+    background-image:url("../img/mist.jpg");
     opacity: 0.3;
-	-webkit-animation: 10s linear 0s normal none infinite animate;
-	-moz-animation: 10s linear 0s normal none infinite animate;
-	-ms-animation: 10s linear 0s normal none infinite animate;
-	-o-animation: 10s linear 0s normal none infinite animate;
-	animation: 10s linear 0s normal none infinite animate;
+	-webkit-animation: 40s linear 0s normal none infinite animate;
+	-moz-animation: 40s linear 0s normal none infinite animate;
+	-ms-animation: 40s linear 0s normal none infinite animate;
+	-o-animation: 40s linear 0s normal none infinite animate;
+	animation: 40s linear 0s normal none infinite animate;
     position: fixed;
     height: 100%;
-    width: 40%;
+    width: 60%;
     border: none;
     z-index: -1;
 } 
@@ -35,27 +35,27 @@ body{
 }
 @-webkit-keyframes animate {
 	from {background-position:0 0;}
-	to {background-position: 1000px 0;}
+	to {background-position: 4000px 0;}
 }
  
 @-moz-keyframes animate {
 	from {background-position:0 0;}
-	to {background-position: 1000px 0;}
+	to {background-position: 4000px 0;}
 }
  
 @-ms-keyframes animate {
 	from {background-position:0 0;}
-	to {background-position: 1000px 0;}
+	to {background-position: 4000px 0;}
 }
  
 @-o-keyframes animate {
 	from {background-position:0 0;}
-	to {background-position: 1000px 0;}
+	to {background-position: 4000px 0;}
 }
  
 @keyframes animate {
 	from {background-position:0 0;}
-	to {background-position: 1000px 0;}
+	to {background-position: 4000px 0;}
 }
 h2,h3{
   color:#888;
